@@ -3,6 +3,8 @@ from Currency_API.get_currency import get_currency_value
 
 app = Flask(__name__)
 
+# # Comment
+
 @app.route("/")
 def render_index_page():
     return render_template("index.html")
@@ -19,3 +21,4 @@ def currencyGet():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    
