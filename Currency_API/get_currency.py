@@ -1,12 +1,12 @@
-import requests
 from datetime import datetime, timedelta
+from security import safe_requests
 
 def get_currency_value(curr1, curr2):
     url = f"https://api.tiingo.com/tiingo/daily/{curr1}{curr2}/prices"
     start_date = (datetime.today() - timedelta(days=1)).strftime("%Y-%m-%d")
     token = "379675600c272f6163caae182d8894f26cd9bddc"
 
-    response = requests.get(url, params={'startDate':start_date, 'token':token})
+    response = safe_requests.get(url, params={'startDate':start_date, 'token':token})
 
     if response.status_code == 200:
         data = response.json()
